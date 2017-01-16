@@ -66,7 +66,6 @@ ext {
     POM_DEVELOPER_NAME = "New York Times"
 }
 
-
 // From command line use: -PdisablePreDex to disable it: primarily for jenkins
 project.ext.preDexLibs = !project.hasProperty('disablePreDex')
 

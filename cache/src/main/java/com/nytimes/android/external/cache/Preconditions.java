@@ -15,9 +15,6 @@
  */
 package com.nytimes.android.external.cache;
 
-
-
-
 import static java.lang.String.format;
 
 /**

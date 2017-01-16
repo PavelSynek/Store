@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Stack;
 
-import static dagger.internal.Preconditions.checkNotNull;
+import static com.nytimes.android.external.cache.Preconditions.checkNotNull;
 
 public class Util {
 

@@ -11,8 +11,6 @@ import com.nytimes.android.sample.data.model.Post;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     private final List<Post> articles = new ArrayList<>();

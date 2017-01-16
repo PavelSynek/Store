@@ -1,6 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 group = GROUP
 version = VERSION_NAME
@@ -40,9 +38,9 @@ artifacts {
     archives sourcesJar
 }
 
-apply from: rootProject.file("gradle/maven-push.gradle")
-//apply from: rootProject.file("gradle/checkstyle.gradle")
-
 dependencies {
     compile libraries.supportAnnotations
 }
+
+apply from: rootProject.file("gradle/maven-push.gradle")
+//apply from: rootProject.file("gradle/checkstyle.gradle")

@@ -30,10 +30,19 @@ android {
     }
 }
 
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
 dependencies {
     compile project(path: ':store')
     compile libraries.rxJava
-    compile libraries.dagger
+    provided libraries.javaxInject
     compile libraries.okio
     compile libraries.gson
     compile libraries.supportAnnotations
@@ -43,16 +52,6 @@ dependencies {
     testCompile libraries.robolectric
 }
 
-
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-artifacts {
-    archives sourcesJar
-}
 apply from: rootProject.file("gradle/maven-push.gradle")
 apply from: rootProject.file("gradle/checkstyle.gradle")
 apply from: rootProject.file("gradle/pmd.gradle")

@@ -30,6 +30,15 @@ android {
     }
 }
 
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
 dependencies {
     compile libraries.okio
     compile libraries.gson
@@ -39,6 +48,7 @@ dependencies {
     compile project(path: ':cache')
     compile project(path: ':store')
     compile project(path: ':middleware')
+    provided libraries.javaxInject
     testCompile libraries.mockito
     testCompile libraries.assertJ
     testCompile libraries.junit
@@ -47,5 +57,3 @@ dependencies {
 apply from: rootProject.file("gradle/maven-push.gradle")
 apply from: rootProject.file("gradle/checkstyle.gradle")
 apply from: rootProject.file("gradle/pmd.gradle")
-
-

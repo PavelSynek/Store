@@ -25,15 +25,14 @@ import com.nytimes.android.sample.reddit.PostAdapter;
 import java.io.IOException;
 import java.util.List;
 import okio.BufferedSource;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
-import retrofit2.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 import static android.widget.Toast.makeText;
-
 
 public class PersistingStoreActivity extends AppCompatActivity {
 
@@ -115,7 +114,7 @@ public class PersistingStoreActivity extends AppCompatActivity {
                 .create(Api.class);
     }
 
-    Gson provideGson() {
+    private Gson provideGson() {
         return new GsonBuilder()
                 .registerTypeAdapterFactory(new GsonAdaptersModel())
                 .create();

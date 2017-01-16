@@ -25,7 +25,6 @@ import static com.nytimes.android.external.cache.Preconditions.checkNotNull;
  * .open();
  */
 
-
 public class GsonSourceParser<Parsed> implements Parser<BufferedSource, Parsed> {
 
     private final Gson gson;

@@ -5,14 +5,13 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion versions.buildTools
     defaultConfig {
         applicationId "com.nytimes.android.sample"
         minSdkVersion 19
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -31,27 +30,21 @@ android {
 }
 
 dependencies {
-    final RETROFIT_VERSION = '2.0.0-beta3'
+    compile libraries.supportRecyclerView
+    compile libraries.supportAppCompat
+    compile libraries.supportCardView
+    compile libraries.supportDesign
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.retrofitRxJavaAdapter
+    compile libraries.picasso
+    compile libraries.guava
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    apt libraries.immutablesValue // <-- for annotation processor
+    provided libraries.immutablesValue // <-- for annotation API
+    provided libraries.immutablesGson // for annotations
 
-    compile 'com.android.support:recyclerview-v7:24.0.0'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:cardview-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
-    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
-    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
-    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.google.guava:guava:19.0'
-
-    apt "org.immutables:value:2.1.16" // <-- for annotation processor
-    provided "org.immutables:value:2.1.16" // <-- for annotation API
-    provided "org.immutables:gson:2.1.16" // for annotations
-
-    testCompile 'junit:junit:4.12'
+    testCompile libraries.junit
 //    compile project(path: ':store')
 //    compile project(path: ':cache')
     compile 'com.nytimes.android:store:1.0.2'
@@ -59,5 +52,4 @@ dependencies {
     compile 'com.nytimes.android:filesystem:1.0.2'
     retrolambdaConfig libraries.retrolambda
     compile libraries.rxAndroid
-
 }

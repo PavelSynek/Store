@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.nytimes.android.sample.R;
 import com.nytimes.android.sample.data.model.Image;
 import com.nytimes.android.sample.data.model.ImmutableImage;
@@ -14,7 +13,6 @@ import com.nytimes.android.sample.data.model.Post;
 import com.nytimes.android.sample.util.BitmapTransform;
 import com.nytimes.android.sample.util.DeviceUtils;
 import com.squareup.picasso.Picasso;
-
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
 

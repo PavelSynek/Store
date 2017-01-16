@@ -30,16 +30,6 @@ android {
     }
 }
 
-dependencies {
-    compile project(path: ':store')
-    compile libraries.moshi
-    compile libraries.rxJava
-    compile libraries.dagger
-    compile libraries.supportAnnotations
-    testCompile libraries.mockito
-    testCompile libraries.junit
-}
-
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -48,6 +38,17 @@ task sourcesJar(type: Jar) {
 artifacts {
     archives sourcesJar
 }
+
+dependencies {
+    compile project(path: ':store')
+    compile libraries.moshi
+    compile libraries.rxJava
+    provided libraries.javaxInject
+    compile libraries.supportAnnotations
+    testCompile libraries.mockito
+    testCompile libraries.junit
+}
+
 apply from: rootProject.file("gradle/maven-push.gradle")
 apply from: rootProject.file("gradle/checkstyle.gradle")
 apply from: rootProject.file("gradle/pmd.gradle")

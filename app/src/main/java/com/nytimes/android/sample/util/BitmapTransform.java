@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import com.nytimes.android.sample.data.model.Image;
 import com.squareup.picasso.Transformation;
 
-
-public class BitmapTransform implements Transformation
-{
+public class BitmapTransform implements Transformation {
     int maxWidth, maxHeight;
     Image key;
     public int targetWidth;
